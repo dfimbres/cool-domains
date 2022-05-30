@@ -12,6 +12,9 @@ const main = async () => {
   
     const domainOwner = await domainContract.getAddress("doom");
     console.log("Owner of domain:", domainOwner);
+
+    txn = await domainContract.connect(randomPerson).setRecord("doom", "this is a  new transaction record");
+    await txn.wait();
 }
 
 const runMain = async () => {
